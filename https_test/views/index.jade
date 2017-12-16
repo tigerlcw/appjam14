@@ -1,0 +1,19 @@
+html
+  head
+    meta(charset='utf-8')
+         
+    title hi blue
+    body 
+      button#the-button Try it
+      script.
+        const button = document.querySelector('#the-button');
+        button.addEventListener('click', function() {
+        navigator.bluetooth.requestDevice({
+        filters: [{
+        services: ['battery_service']
+        }]
+        }).then(device => {
+        console.log('Got device:', device.name);
+        console.log('id:', device.id);
+        });
+        });
